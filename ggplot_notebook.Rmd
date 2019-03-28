@@ -28,3 +28,13 @@ mtcars %>%
 
 ```
 
+Ben's Code
+```{r}
+starwars %>% 
+  filter(species %in% c("Human", "Droid") & is.finite(mass)) %>% 
+  ggplot()+
+  geom_boxplot(aes(x=species,y=mass))+
+  xlab("Species")+
+  ylab("Mass (kg)")
+```
+
