@@ -27,4 +27,13 @@ mtcars %>%
   coord_flip() 
 
 ```
+Ben's Code
+```{r}
+starwars %>% 
+  filter(species %in% c("Human", "Droid")) %>% 
+  ggplot()+
+  geom_boxplot(aes(x=species,y=mass))+
+  xlab("Species")+
+  ylab("Mass (kg)")
+```
 
