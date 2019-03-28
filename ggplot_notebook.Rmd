@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Objective: Test collabration potential of github using a simple example.
+
+task:
+use any data to create or modify ggplot graphs in a shared notebook (this notebook)
+
+
+
+first shot:
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+data(mtcars) #yes, I know, not very origianal
+
+
+mtcars %>% 
+  mutate(model = rownames(.), gear = as.factor(gear), model = as.factor(model)) %>% 
+  select(model, everything()) %>% 
+  arrange(model) %>% 
+  mutate(model = forcats::fct_rev(model)) %>% 
+  ggplot(aes(x = model, y = mpg, fill = gear))+
+  geom_bar(stat = "identity", color = "black")+
+  coord_flip() 
+
+```
+
