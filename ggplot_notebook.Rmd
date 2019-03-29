@@ -40,3 +40,40 @@ starwars %>%
 # this comment is a test
 ```
 
+It sounds like we could revert back to a previous version at any time, I'll have to play around with how that would be done.
+
+Looks like a happy primer:
+http://r-bio.github.io/intro-git-rstudio/
+
+
+```{r}
+starwars %>% #cool set
+select(species, films) %>% 
+filter(!is.na(species)) %>% 
+mutate(n_films = lengths(films))  %>% 
+mutate(species = forcats::fct_rev(species)) %>% 
+ggplot(aes(x = species, y = n_films))+
+geom_bar(stat = "identity", fill = "lightblue") +
+coord_flip()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
